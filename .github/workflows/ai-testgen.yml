@@ -23,6 +23,7 @@ jobs:
         run: |
           curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
           https://api.github.com/repos/kasimes/AI_TESTGEN/compare/main...HEAD
+
            > diff.json
 
       # Merge sonrası değişen dosyaları listele
