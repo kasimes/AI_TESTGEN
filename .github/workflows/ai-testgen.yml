@@ -19,12 +19,19 @@ jobs:
           COMMIT_ID=$(git rev-parse HEAD)
           echo "New commit ID after merge: $COMMIT_ID"
       # merge sonrası degisen dosyaları github api ile alma
-      - name: get chaged files via GitHub API
+      - name: Get changed files via GitHub API
         run: |
-          curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-          https://api.github.com/repos/kasimes/AI_TESTGEN/compare/main...HEAD
+          BEFORE=${{ github.event.before }}
+          SHA=${{ github.sha }}
 
-           > diff.json
+          # Eğer BEFORE boşsa main branch ile karşılaştır
+          if [ -z "$BEFORE" ]; then
+            BEFORE="main"
+          fi
+
+          curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          https://api.github.com/repos/kasimes/AI_TESTGEN/compare/$BEFORE...$SHA \
+          > diff.json
 
       # Merge sonrası değişen dosyaları listele
       - name: List changed files
