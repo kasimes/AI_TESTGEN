@@ -1,0 +1,1 @@
+print("kasım es es ")
