@@ -46,7 +46,10 @@ jobs:
       - name: Show only changed files names
         run: |
           jq -r '.files[].filename' diff.json || paste -sd "--"
-      - name : Extract changed files
+      - name: Extract changed files
         run: |
-         cat diff.json | jq -r '.files[].filename' > changed_files.json
-         cat changed_files.json
+          cat diff.json | jq -r '.files[].filename' > changed_files.json
+          cat changed_files.json
+
+      - name: Run dff_parser.py to exrtract changed files
+        run: python listener/diff_parser.py
