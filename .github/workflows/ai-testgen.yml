@@ -52,4 +52,4 @@ jobs:
           cat changed_files.json
 
       - name: Run dff_parser.py to exrtract changed files
-        run: python listener/diff_parser.py
+        run: python listener/dff_parser.py
