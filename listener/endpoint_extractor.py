@@ -18,8 +18,15 @@ endpoints = []
 # Reges desenleri
 
 regex_patterns = [
-   # FastAPI / Flask
+   # FastAPI / Flask/Flask-RESTful
     r'@(?:app|router)\.(?:get|post|put|delete|patch)\(["\'](.*?)["\']',
+    r'@app\.route\(["\'](.*?)["\'],\s*methods\s*=\s*\[.*?\]\)',
+    r'@api\.resource\(["\'](.*?)["\']\)',
+
+    # Django
+    r'path\(["\'](.*?)["\'],\s*.*?\)',
+    r're_path\(["\'](.*?)["\'],\s*.*?\)',
+
     # Spring Boot
     r'@(?:GetMapping|PostMapping|PutMapping|DeleteMapping|RequestMapping)\(["\'](.*?)["\']'
 ]

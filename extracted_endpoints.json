@@ -4,7 +4,9 @@
       "file": "src/routes/user.py",
       "endpoints": [
         "/user/list",
-        "/user/create"
+        "/user/create",
+        "/user/delete/{user_id}",
+        "/user/update/{user_id}"
       ]
     }
   ]

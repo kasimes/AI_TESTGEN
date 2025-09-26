@@ -2,9 +2,7 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-@app.get("/user/list")
-def list_users():
-    return {"users": ["Alice", "Bob", "Charlie"]}
+
 
 
 
