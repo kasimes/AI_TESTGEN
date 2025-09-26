@@ -1,0 +1,11 @@
+{
+  "endpoints": [
+    {
+      "file": "src/routes/user.py",
+      "endpoints": [
+        "/user/list",
+        "/user/create"
+      ]
+    }
+  ]
+}
