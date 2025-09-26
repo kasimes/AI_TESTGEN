@@ -18,6 +18,7 @@ jobs:
         run: |
           COMMIT_ID=$(git rev-parse HEAD)
           echo "New commit ID after merge: $COMMIT_ID"
+
       # merge sonrası degisen dosyaları github api ile alma
       - name: Get changed files via GitHub API
         run: |
@@ -53,3 +54,11 @@ jobs:
 
       - name: Run dff_parser.py to exrtract changed files
         run: python listener/dff_parser.py
+
+      - name: Upload changed files as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: changed-files
+          path: |
+            changed_files.json
+            diff.json
