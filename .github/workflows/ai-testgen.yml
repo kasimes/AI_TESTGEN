@@ -55,6 +55,9 @@ jobs:
       - name: Run dff_parser.py to exrtract changed files
         run: python listener/dff_parser.py
 
+      - name: run endpoint_extractor.py to extract endpoints from changed files
+        run: python listener/endpoint_extractor.py
+
       - name: Upload changed files as artifact
         uses: actions/upload-artifact@v4
         with:
